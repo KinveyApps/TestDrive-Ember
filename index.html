@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TestDrive for Ember.js</title>
+    <meta name="description" content="">
+
+    <!-- Add favicon.ico and stylesheets here -->
+  </head>
+  <body>
+    <!-- Home template. -->
+    <script data-template-name="home" type="text/x-handlebars">
+      <h1>TestDrive</h1>
+
+      {{#if response}}
+        <p>Ping success! Response: {{ response.kinvey }}, {{ response.version }}.</p>
+      {{/if}}
+      {{#if error}}
+        <p>Failure: {{ error.name }} ({{ error.description }}).</p>
+      {{/if}}
+        <p><button {{action "ping"}}>Ping Kinvey</button></p>
+
+      {{#if activeUser.isLoggedIn }}
+        <p>You are logged in, username: {{ activeUser.username }}.</p>
+        <p><button {{action "signout"}}>Sign Out</button></p>
+      {{else}}
+        <p>You are not logged in. Click the button below to generate a user.</p>
+        <p><button {{action "signup"}}>Sign Up</button></p>
+      {{/if}}
+    </script>
+
+    <!-- Dependencies. -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ember.js/1.4.0/ember.js"></script>
+    <script src="vendor/ember-data.js"></script>
+
+    <!-- Kinvey’s Ember.js library: change your appKey and appSecret with your own -->
+    <script src="//da189i1jfloii.cloudfront.net/js/kinvey-ember-2.0.0-beta.js"></script>
+
+    <!-- Add JavaScript libraries and resources here -->
+    <script src="js/application.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/models/user.js"></script>
+    <script src="js/controllers/home.js"></script>
+  </body>
+</html>
