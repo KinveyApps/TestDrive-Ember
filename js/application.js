@@ -18,7 +18,8 @@
 // the Kinvey console.
 var kinveyOptions = {
   appKey    : 'App Key',
-  appSecret : 'App Secret'
+  appSecret : 'App Secret',
+  debug     : true // Show debug messages.
 };
 
 // Register the Kinvey initializer.
